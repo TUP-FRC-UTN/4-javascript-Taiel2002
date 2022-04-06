@@ -1,0 +1,110 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css"
+    integrity="sha384-zCbKRCUGaJDkqS1kPbPd7TveP5iyJE0EjAuZQTgFLD2ylzuqKfdKlfG/eSrtxUkn" crossorigin="anonymous">
+
+  <title>Clase 4 - Javascript</title>
+</head>
+
+<body>
+
+<div class="container d-flex align-items-center h-100">
+    <div class="row align-items-center">
+    <!--#region form con bootstrap-->
+      <div class="col-md-6 col-sm-12">
+        <h1>Form con bootstrap:</h1>
+        <div class="container">
+            <h3>Ingrese sus datos</h3>
+
+            <div class="form row">
+                <div class="form-group col-lg-6 col-sm-12">
+                    <label for="email">Direccion de correo electronico:</label>
+                    <input type="email" name="email" id="email" class="form-control"  placeholder="Ingrese su correo electronico">
+                </div>
+
+                <div class="form-group col-lg-6 col-sm-12">
+                    <label for="password">Contraseña:</label>
+                    <input type="password" name="password" id="password" class="form-control"  placeholder="Ingrese una contraseña">
+                </div>
+
+                <div class="form-group col-lg-6 col-sm-12">
+                    <label for="name">Nombre:</label>
+                    <input type="nombre" name="nombre" id="nombre" class="form-control" placeholder="Nombre">
+                </div>
+
+                <div class="form-group col-lg-6 col-sm-12">
+                    <label for="lastname">Apellido:</label>
+                    <input type="apellido" name="apellido" id="apellido" class="form-control" placeholder="Apellido">
+                </div>
+                
+                <div class="form-group col-lg-6 col-sm-12">
+                    <label for="gender">Genero:</label>
+                    <select type="nombre" name="gender" id="gender" class="custom-select mr-sm-2">
+                        <option value="1">Hombre</option>
+                        <option value="2">Mujer</option>
+                        <option value="3" selected>Prefiero no decirlo</option>
+                    </select>
+                </div>
+
+                <div class="col-sm-10">
+                    <button type="submit" class="btn btn-primary" onclick="ValidarForm()">Validar</button>
+                </div>
+              </div>
+           </div>
+          </div>
+    <!--#endregion-->
+        </div>
+    </div>
+
+  <script>
+      function ValidarForm(){
+        var txtEmail = document.getElementById('email');
+        var txtPassword = document.getElementById('password');
+        var txtNombre = document.getElementById('nombre');
+        var txtApellido = document.getElementById('apellido');
+        var selectGender = document.getElementById('gender');
+
+        if(txtEmail.value === '') {
+            alert('Email requerido');
+            return false;
+        }
+
+        if(txtPassword.value === '') {
+            alert('contraseña requerida');
+            return false;
+        } else if(txtPassword.value.length < 8) {
+            alert('La contraseña debe contener al menos 8 caracteres')
+        }
+
+        if(txtNombre.value === '') {
+            alert('Nombre requerido');
+            return false;
+        }
+
+        if(txtApellido.value === '') {
+            alert('Apellido requerido');
+            return false;
+        }
+
+        return true
+    }
+
+    function GuardarDatos(){
+        if(ValidarForm()) {
+            alert('Guardando Datos')
+        } else {
+            alert('error de validacion')
+        }        
+    }   
+
+  </script>
+</body>
+
+</html>
